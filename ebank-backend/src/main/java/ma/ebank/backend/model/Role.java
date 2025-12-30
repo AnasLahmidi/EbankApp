@@ -15,6 +15,14 @@ public class Role {
     @Column(unique = true, nullable = false)
     private RoleType name;
 
+    public Role(RoleType name) {
+        this.name = name;
+    }
+
+    public Role() {
+
+    }
+
     // getters & setters
 
     public Long getId() {
@@ -24,4 +32,9 @@ public class Role {
     public RoleType getName() {
         return name;
     }
+
+    public void setName(RoleType name) {
+        this.name = name;
+    }
+
 }

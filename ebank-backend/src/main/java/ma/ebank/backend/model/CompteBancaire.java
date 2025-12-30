@@ -52,4 +52,28 @@ public class CompteBancaire {
     public List<OperationBancaire> getOperations() {
         return operations;
     }
+
+    public void setId(Long id) {
+        this.id = id;
+    }
+
+    public void setRib(String rib) {
+        this.rib = rib;
+    }
+
+    public void setSolde(double solde) {
+        this.solde = solde;
+    }
+
+    public void setStatut(AccountStatus statut) {
+        this.statut = statut;
+    }
+
+    public void setClient(Client client) {
+        this.client = client;
+    }
+
+    public void setOperations(List<OperationBancaire> operations) {
+        this.operations = operations;
+    }
 }
