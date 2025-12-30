@@ -42,7 +42,7 @@ public class DataInitializer {
     }
 
 
-    private void createAgentIfNotExists(String login,
+ private void createAgentIfNotExists(String login,
                                         String rawPassword,
                                         Role role,
                                         UserRepository userRepository,
@@ -52,7 +52,7 @@ public class DataInitializer {
             User agent = new User();
             agent.setLogin(login);
             agent.setPassword(passwordEncoder.encode(rawPassword));
-            agent.setRole(role);   // ✅ rôle déjà persistant
+            agent.setRole(role);
             userRepository.save(agent);
         }
     }

@@ -1,6 +1,5 @@
 package ma.ebank.backend.config;
 
-import ma.ebank.backend.config.JwtAuthenticationFilter;
 import ma.ebank.backend.service.CustomUserDetailsService;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;

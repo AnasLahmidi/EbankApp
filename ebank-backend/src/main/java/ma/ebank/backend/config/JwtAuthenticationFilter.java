@@ -1,6 +1,5 @@
 package ma.ebank.backend.config;
 
-
 import ma.ebank.backend.service.CustomUserDetailsService;
 import jakarta.servlet.FilterChain;
 import jakarta.servlet.ServletException;
@@ -42,7 +41,7 @@ public class JwtAuthenticationFilter extends OncePerRequestFilter {
             if (!jwtUtil.validateToken(token)) {
                 response.setStatus(HttpServletResponse.SC_UNAUTHORIZED);
                 response.getWriter()
-                        .write("Session invalide, veuillez s’authentifier");
+                        .write("Session invalide, veuillez s'authentifier");
                 return;
             }
 

@@ -2,11 +2,9 @@ package ma.ebank.backend.service;
 
 import ma.ebank.backend.model.User;
 import ma.ebank.backend.repository.UserRepository;
-import org.springframework.security.core.authority.SimpleGrantedAuthority;
+import ma.ebank.backend.config.UserDetailsImpl;
 import org.springframework.security.core.userdetails.*;
 import org.springframework.stereotype.Service;
-
-import java.util.List;
 
 @Service
 public class CustomUserDetailsService implements UserDetailsService {
@@ -25,15 +23,6 @@ public class CustomUserDetailsService implements UserDetailsService {
                 .orElseThrow(() ->
                         new UsernameNotFoundException("Login ou mot de passe erronés"));
 
-        return new org.springframework.security.core.userdetails.User(
-                user.getLogin(),
-                user.getPassword(),
-                user.isEnabled(),
-                true,
-                true,
-                true,
-                List.of(new SimpleGrantedAuthority(
-                        "ROLE_" + user.getRole().getName().name()))
-        );
+        return new UserDetailsImpl(user);
     }
 }

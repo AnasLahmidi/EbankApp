@@ -6,6 +6,7 @@ import ma.ebank.backend.dto.LoginResponse;
 import ma.ebank.backend.config.JwtUtil;
 import ma.ebank.backend.model.User;
 import ma.ebank.backend.repository.UserRepository;
+import ma.ebank.backend.config.UserDetailsImpl;
 import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
 import org.springframework.security.core.Authentication;
@@ -43,13 +44,15 @@ public class AuthController {
                             )
                     );
 
-            User user = (User) authentication.getPrincipal();
+            UserDetailsImpl userDetails = (UserDetailsImpl) authentication.getPrincipal();
+            User user = userDetails.getUser();
 
             String token = jwtUtil.generateToken(user.getLogin());
 
             return new LoginResponse(token, user.getRole().getName().toString());
 
         } catch (Exception e) {
+            e.printStackTrace();
             throw new RuntimeException("Login ou mot de passe erronés");
         }
     }
@@ -58,18 +61,14 @@ public class AuthController {
     public void changePassword(@RequestBody ChangePasswordRequest request,
                                Authentication authentication) {
 
-        User user = (User) authentication.getPrincipal();
+        UserDetailsImpl userDetails = (UserDetailsImpl) authentication.getPrincipal();
+        User user = userDetails.getUser();
 
-        if (!passwordEncoder.matches(
-                request.getOldPassword(),
-                user.getPassword())) {
+        if (!passwordEncoder.matches(request.getOldPassword(), user.getPassword())) {
             throw new RuntimeException("Ancien mot de passe incorrect");
         }
 
-        user.setPassword(
-                passwordEncoder.encode(request.getNewPassword())
-        );
-
+        user.setPassword(passwordEncoder.encode(request.getNewPassword()));
         userRepository.save(user);
     }
 }

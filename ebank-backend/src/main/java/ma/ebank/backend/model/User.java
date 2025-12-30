@@ -19,13 +19,11 @@ public class User {
     @Column(nullable = false)
     private boolean enabled = true;
 
-
     @ManyToOne
     @JoinColumn(name = "role_id")
     private Role role;
 
-    // getters & setters
-
+    // Getters
     public Long getId() {
         return id;
     }
@@ -46,16 +44,13 @@ public class User {
         return role;
     }
 
-    public void setPassword(String password) {
-        this.password = password;
-    }
-
-    public void setId(Long id) {
-        this.id = id;
-    }
-
+    // Setters
     public void setLogin(String login) {
         this.login = login;
+    }
+
+    public void setPassword(String password) {
+        this.password = password;
     }
 
     public void setEnabled(boolean enabled) {
