@@ -36,8 +36,8 @@ public class DataInitializer {
             Role agentRole = roleRepository.findByName(RoleType.AGENT_GUICHET);
 
             // 3️⃣ users
-            createAgentIfNotExists("agent1", "1234", agentRole, userRepository, passwordEncoder);
-            createAgentIfNotExists("agent2", "1234", agentRole, userRepository, passwordEncoder);
+            createAgentIfNotExists("agent1", "123456", agentRole, userRepository, passwordEncoder);
+            createAgentIfNotExists("agent2", "123456", agentRole, userRepository, passwordEncoder);
         };
     }
 
