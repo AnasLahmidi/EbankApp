@@ -130,7 +130,7 @@ Authorization: Bearer <token>
 
 **Client Operations**
 - `GET /api/client/dashboard` - View dashboard
-- `POST /api/client/transfer` - Transfer money between accounts
+- `POST api/client/virements` - Transfer money between accounts
 
 ## 📂 Project Structure
 
