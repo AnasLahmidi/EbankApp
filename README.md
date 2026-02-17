@@ -167,8 +167,8 @@ src/main/java/ma/ebank/backend
 💼 LinkedIn: [linkedin.com/in/tahiri-sara](https://www.linkedin.com/in/tahiri-sara/)
 
 **Anas Lahmidi**  
-🔗 GitHub: [github.com/anasthe03](https://github.com/anasthe03)  
-💼 LinkedIn: [linkedin.com/in/lahmidianas](https://www.linkedin.com/in/lahmidianas/)
+🔗 GitHub: [github.com/anasthe03](https://github.com/AnasLahmidi)  
+💼 LinkedIn: [linkedin.com/in/lahmidianas](https://www.linkedin.com/in/anas-lahmidi/)
 
 ## 📞 Contact
 
